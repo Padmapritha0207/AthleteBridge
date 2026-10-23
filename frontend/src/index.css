@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --app-font: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  html {
+    font-family: var(--app-font);
+  }
+
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Accessible focus indicators for all interactive elements */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #0284c7;
+    outline-offset: 2px;
+  }
+}
+
+/* ==========================================================================
+   EXPERIENCE B: REAL, VISIBLE ACCESSIBILITY PREFERENCES
+   ========================================================================== */
+
+/* 1. Typography Resizing */
+.text-size-medium {
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.text-size-large {
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.text-size-large h1 { font-size: 1.85rem !important; }
+.text-size-large h2 { font-size: 1.6rem !important; }
+.text-size-large h3 { font-size: 1.35rem !important; }
+.text-size-large p, .text-size-large span, .text-size-large button, .text-size-large input {
+  font-size: 1.05rem !important;
+}
+
+.text-size-xlarge {
+  font-size: 1.32rem;
+  line-height: 1.8;
+}
+
+.text-size-xlarge h1 { font-size: 2.1rem !important; }
+.text-size-xlarge h2 { font-size: 1.8rem !important; }
+.text-size-xlarge h3 { font-size: 1.5rem !important; }
+.text-size-xlarge p, .text-size-xlarge span, .text-size-xlarge button, .text-size-xlarge input {
+  font-size: 1.18rem !important;
+}
+
+/* 2. Enhanced Focus Indicators */
+.focus-enhanced button:focus-visible,
+.focus-enhanced a:focus-visible,
+.focus-enhanced input:focus-visible,
+.focus-enhanced select:focus-visible,
+.focus-enhanced textarea:focus-visible {
+  outline: 3px solid #0284c7 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 5px rgba(2, 132, 199, 0.25) !important;
+}
+
+/* 3. High Contrast Display Theme */
+.theme-high-contrast {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.theme-high-contrast body,
+.theme-high-contrast .app-shell {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.theme-high-contrast header {
+  background-color: #ffffff !important;
+  border-bottom: 2px solid #000000 !important;
+}
+
+.theme-high-contrast aside {
+  background-color: #090d16 !important;
+  border-right: 2px solid #ffffff !important;
+}
+
+.theme-high-contrast .bg-white,
+.theme-high-contrast .bg-slate-50,
+.theme-high-contrast .bg-sky-50,
+.theme-high-contrast .bg-indigo-50,
+.theme-high-contrast .bg-amber-50,
+.theme-high-contrast .bg-emerald-50 {
+  background-color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.theme-high-contrast h1,
+.theme-high-contrast h2,
+.theme-high-contrast h3,
+.theme-high-contrast h4,
+.theme-high-contrast p,
+.theme-high-contrast span {
+  color: #000000 !important;
+}
+
+.theme-high-contrast .text-slate-500,
+.theme-high-contrast .text-slate-400,
+.theme-high-contrast .text-slate-600 {
+  color: #1e293b !important;
+  font-weight: 500 !important;
+}
+
+.theme-high-contrast button {
+  border: 2px solid currentColor !important;
+}
+
+.theme-high-contrast .theme-badge {
+  border: 2px solid #000000 !important;
+  font-weight: 700 !important;
+}
+
+/* 4. Layout Density: Comfortable (Larger Touch Targets >= 48px) */
+.density-comfortable button,
+.density-comfortable a.button-style,
+.density-comfortable input,
+.density-comfortable select {
+  min-height: 48px !important;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+.density-comfortable .grid {
+  gap: 1.75rem !important;
+}
+
+.density-comfortable .space-y-4 > * + * {
+  margin-top: 1.75rem !important;
+}
+
+/* 5. Layout Density: Simplified (Single column focus, plain layout) */
+.density-simplified .grid-cols-2,
+.density-simplified .grid-cols-3,
+.density-simplified .grid-cols-4,
+.density-simplified .lg\:grid-cols-2,
+.density-simplified .lg\:grid-cols-3,
+.density-simplified .lg\:grid-cols-4 {
+  grid-template-columns: 1fr !important;
+}
+
+.density-simplified .decorative-element {
+  display: none !important;
+}
+
+/* 6. Dyslexic / Open Legibility Font Option */
+.font-dyslexic {
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.1em !important;
+  line-height: 1.75 !important;
+}
+
+/* 7. Reduced Motion */
+.motion-reduce-active *,
+.motion-reduce-active ::before,
+.motion-reduce-active ::after {
+  animation-delay: -1ms !important;
+  animation-duration: 1ms !important;
+  animation-iteration-count: 1 !important;
+  background-attachment: initial !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
